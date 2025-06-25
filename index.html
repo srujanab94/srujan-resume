@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srujan Kohir | Senior Product Manager</title>
+    <style>
+        /* Import fonts inline */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-blue-light: #3b82f6;
+            --primary-blue-dark: #1d4ed8;
+            --secondary-indigo: #6366f1;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-light: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav.visible {
+            transform: translateY(0);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.03)" points="0,1000 1000,0 1000,1000"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-xl);
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-text .tagline {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 600px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Impact Metrics Section */
+        .metrics-section {
+            background: var(--bg-primary);
+            padding: 3rem 0;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .metrics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-indigo));
+        }
+
+        .metric-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card h2 .icon {
+            font-size: 1.25rem;
+            color: var(--secondary-indigo);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: white;
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .experience-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievement-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .achievement-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Summary Section */
+        .summary-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* Highlights */
+        .highlight-item {
+            background: linear-gradient(135deg, var(--primary-blue-light), var(--secondary-indigo));
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateX(8px);
+        }
+
+        .highlight-item::before {
+            content: attr(data-icon);
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-right: 1rem;
+        }
+
+        /* Product Philosophy Section */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .philosophy-item {
+            background: linear-gradient(135deg, var(--bg-secondary), white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-green);
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-item:nth-child(2) {
+            border-left-color: var(--accent-orange);
+        }
+
+        .philosophy-item:nth-child(3) {
+            border-left-color: var(--accent-purple);
+        }
+
+        .philosophy-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .philosophy-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .philosophy-item h3::before {
+            content: attr(data-icon);
+            margin-right: 0.5rem;
+        }
+
+        .philosophy-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Key Projects Section */
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .project-impact {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Certifications & Learning */
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cert-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .cert-icon::before {
+            content: attr(data-icon);
+        }
+
+        .cert-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button::before {
+            content: attr(data-icon);
+            margin-right: 0.5rem;
+        }
+
+        /* Icon classes using Unicode symbols */
+        .icon-user::before { content: '👤'; }
+        .icon-cogs::before { content: '⚙️'; }
+        .icon-tools::before { content: '🔧'; }
+        .icon-star::before { content: '⭐'; }
+        .icon-certificate::before { content: '🏆'; }
+        .icon-lightbulb::before { content: '💡'; }
+        .icon-project::before { content: '📊'; }
+        .icon-briefcase::before { content: '💼'; }
+        .icon-users::before { content: '👥'; }
+        .icon-rocket::before { content: '🚀'; }
+        .icon-chart::before { content: '📈'; }
+        .icon-cloud::before { content: '☁️'; }
+        .icon-shield::before { content: '🛡️'; }
+        .icon-envelope::before { content: '✉️'; }
+        .icon-linkedin::before { content: '💼'; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.25rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .experience-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .metrics-section {
+                padding: 2rem 0;
+            }
+
+            .metric-card {
+                padding: 1.5rem;
+            }
+
+            .metric-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+        .card:nth-child(4) { animation-delay: 0.3s; }
+
+        .metric-card {
+            animation: countUp 0.8s ease-out;
+        }
+
+        .metric-card:nth-child(2) { animation-delay: 0.2s; }
+        .metric-card:nth-child(3) { animation-delay: 0.4s; }
+        .metric-card:nth-child(4) { animation-delay: 0.6s; }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="navbar">
+        <div class="nav-content">
+            <div class="nav-logo">Srujan Kohir</div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('hero')">Home</a></li>
+                <li><a onclick="scrollToSection('metrics')">Impact</a></li>
+                <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                <li><a onclick="scrollToSection('projects')">Projects</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero" id="hero">
+        <div class="hero-content">
+            <div class="profile-image">
+                <img src="profile-photo.jpg" alt="Srujan Kohir - Senior Product Manager" />
+            </div>
+            <div class="hero-text">
+                <h1>Srujan Kohir</h1>
+                <div class="subtitle">Senior Product Manager</div>
+                <div class="tagline">Transforming complex technical challenges into user-friendly solutions • APIs • Platform Strategy • Developer Experience • Data Insights</div>
+                <div class="contact-links">
+                    <a href="mailto:b.abraham0021@gmail.com" class="contact-link">
+                        ✉️ Email
+                    </a>
+                    <a href="tel:+1-201-565-5025" class="contact-link">
+                        📞 +1-201-565-5025
+                    </a>
+                    <a href="https://www.linkedin.com/in/srujan-abraham-kohir-19248b112" target="_blank" class="contact-link">
+                        💼 LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="metrics-section" id="metrics">
+        <div class="metrics-container">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">40%</span>
+                    <div class="metric-label">Integration Time Reduced</div>
+                    <div class="metric-description">Developer portal optimization</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">7+</span>
+                    <div class="metric-label">Years Experience</div>
+                    <div class="metric-description">Product management & APIs</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">70+</span>
+                    <div class="metric-label">API Integrations</div>
+                    <div class="metric-description">Payment & fintech platforms</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="sidebar">
+                <div class="card">
+                    <h2><span class="icon">🏆</span>Continuous Learning</h2>
+                    <div class="cert-item">
+                        <div class="cert-icon" data-icon="📈"></div>
+                        <div class="cert-content">
+                            <h4>Product Analytics</h4>
+                            <p>Advanced metrics & KPI tracking</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon" data-icon="☁️"></div>
+                        <div class="cert-content">
+                            <h4>Cloud Architecture</h4>
+                            <p>API gateway & microservices</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon" data-icon="🛡️"></div>
+                        <div class="cert-content">
+                            <h4>Fintech Security</h4>
+                            <p>Payment compliance & KYC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="card">
+                    <h2><span class="icon">👤</span>Professional Summary</h2>
+                    <div class="summary-text">
+                        Product leader with <strong>7+ years of experience</strong> building and scaling payment gateways, APIs, and no-code fintech solutions. Proven track record in leading developer-focused products, executing seamless platform migrations, and integrating third-party services. Known for a hands-on approach, combining creativity with due diligence to design, prototype, and launch robust, user-centric solutions. Skilled in roadmap execution, Agile delivery, stakeholder alignment, and data-driven reporting.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><span class="icon">💡</span>Product Philosophy</h2>
+                    <div class="philosophy-grid">
+                        <div class="philosophy-item">
+                            <h3 data-icon="👥">User-Centric Design</h3>
+                            <p>Every feature starts with understanding the developer or merchant journey. I believe in building products that solve real problems, not just technical challenges.</p>
+                        </div>
+                        <div class="philosophy-item">
+                            <h3 data-icon="⚙️">Iterative Excellence</h3>
+                            <p>Perfect is the enemy of good. I focus on rapid MVP delivery followed by continuous improvement based on user feedback and data insights.</p>
+                        </div>
+                        <div class="philosophy-item">
+                            <h3 data-icon="🤝">Collaborative Leadership</h3>
+                            <p>The best products emerge from diverse perspectives. I foster cross-functional collaboration and ensure every stakeholder voice is heard.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="projects">
+                    <h2><span class="icon">📊</span>Key Projects & Impact</h2>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">Developer Portal & API Documentation Platform</div>
+                                <div class="project-description">
+                                    Led the complete redesign of our developer onboarding experience, creating an interactive portal with live API testing, comprehensive documentation, and automated integration guides.
+                                </div>
+                            </div>
+                            <div class="project-impact">40% faster integration</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">API Design</span>
+                            <span class="project-tag">Developer Experience</span>
+                            <span class="project-tag">Documentation</span>
+                            <span class="project-tag">Swagger</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">KYC Workflow Automation Platform</div>
+                                <div class="project-description">
+                                    Designed and implemented an automated KYC onboarding system integrating multiple third-party verification services, reducing manual review time and improving compliance accuracy.
+                                </div>
+                            </div>
+                            <div class="project-impact">75% automation rate</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Compliance</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Integration</span>
+                            <span class="project-tag">Fintech</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">AT&T Partner Solutions API Ecosystem</div>
+                                <div class="project-description">
+                                    Managed the API program enabling partners to seamlessly order internet services, from initial agreements to service delivery. Built comprehensive partner portal and automated manual workflows.
+                                </div>
+                            </div>
+                            <div class="project-impact">60% reduction in delivery time</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Enterprise APIs</span>
+                            <span class="project-tag">Partner Integration</span>
+                            <span class="project-tag">Workflow Automation</span>
+                            <span class="project-tag">Telecommunications</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">Payment Gateway Tokenization System</div>
+                                <div class="project-description">
+                                    Led the development of secure payment tokenization APIs, ensuring PCI compliance while enabling seamless recurring payments and reducing fraud risks for merchants.
+                                </div>
+                            </div>
+                            <div class="project-impact">99.9% uptime achieved</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Payment Processing</span>
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">PCI Compliance</span>
+                            <span class="project-tag">Tokenization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="experience">
+                    <h2><span class="icon">💼</span>Professional Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3>Product Manager</h3>
+                        <div class="experience-meta">
+                            <span>🏢 Agile Financial Systems</span>
+                            <span>📅 Nov 2021 – Present</span>
+                            <span>📍 Southlake, TX</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li>Designed and managed RESTful APIs for payments, tokenization, and reporting, serving 500+ merchant integrations</li>
+                            <li>Led the buildout of a developer portal with interactive documentation, reducing integration time by 40%</li>
+                            <li>Drove product strategy by identifying market gaps and proposing scalable fintech solutions that increased revenue by 25%</li>
+                            <li>Led the design of KYC onboarding workflows and integrations with third-party verification and compliance services</li>
+                            <li>Owned end-to-end product delivery including sprint planning, QA, and releases across 3 engineering teams</li>
+                            <li>Collaborated with engineering and leadership to expand payment facilitation capabilities, supporting $50M+ in transaction volume</li>
+                            <li>Built executive dashboards using Power BI to drive strategic decision-making with real-time metrics and KPIs</li>
+                            <li>Supported onboarding and delivered technical demos to 200+ ISVs and merchants, achieving 85% conversion rate</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>API Program Manager</h3>
+                        <div class="experience-meta">
+                            <span>🏢 AT&T (via Kforce)</span>
+                            <span>📅 Apr 2019 – Nov 2021</span>
+                            <span>📍 Plano, TX</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li>Managed the API program for AT&T Partner Solutions, improving integration capabilities and partner experience for 100+ enterprise clients</li>
+                            <li>Designed 15+ new APIs to support service availability and pricing, accelerating partner adoption by 35%</li>
+                            <li>Collaborated with cross-functional stakeholders to build a comprehensive partner portal enabling seamless ordering of internet and related services</li>
+                            <li>Automated manual workflows to improve service delivery, reducing response times by 60% and installation times by 45%</li>
+                            <li>Created detailed user stories, acceptance criteria, and Swagger documentation for 20+ API endpoints</li>
+                            <li>Facilitated Agile ceremonies for 4 development teams and prioritized backlog in alignment with leadership goals</li>
+                            <li>Drove product roadmap initiatives supporting $10M+ in annual partner revenue</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Technical Business Analyst</h3>
+                        <div class="experience-meta">
+                            <span>🏢 Thomson Reuters</span>
+                            <span>📅 Oct 2018 – Apr 2019</span>
+                            <span>📍 Dallas/Fort Worth</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li>Managed APIs for Thomson Reuters' trust tax software platform, supporting secure integration with 50+ external services</li>
+                            <li>Developed 10+ new APIs to enable efficient data imports and exports, improving client workflow efficiency by 30%</li>
+                            <li>Maintained comprehensive API documentation ensuring 95% developer adoption success rate</li>
+                            <li>Performed end-to-end API testing using Postman and Swagger, achieving 99.5% accuracy in functionality validation</li>
+                            <li>Collaborated with product and technical stakeholders to align API requirements with business goals and compliance standards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Let's Drive Product Success Together</h2>
+            <p>Seeking a strategic product leader who delivers measurable results? I bring 7+ years of API platform expertise, proven track record of reducing integration times by 40%, and experience scaling fintech solutions to $50M+ transaction volumes.</p>
+            <div class="cta-buttons">
+                <a href="mailto:b.abraham0021@gmail.com?subject=Product Management Opportunity - Let's Connect&body=Hi Srujan,%0D%0A%0D%0AI came across your portfolio and I'm impressed by your API product management experience and quantified impact on developer productivity.%0D%0A%0D%0AI'd love to discuss how your skills could contribute to our product strategy.%0D%0A%0D%0AWhen would be a good time for a brief conversation?%0D%0A%0D%0ABest regards," class="cta-button" data-icon="✉️">
+                    Schedule a Conversation
+                </a>
+                <a href="https://www.linkedin.com/in/srujan-abraham-kohir-19248b112" target="_blank" class="cta-button secondary" data-icon="💼">
+                    View Full Profile
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling navigation
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Show/hide navigation on scroll
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    navbar.classList.remove('visible');
+                } else {
+                    // Scrolling up
+                    navbar.classList.add('visible');
+                }
+            } else {
+                navbar.classList.remove('visible');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Animate metric numbers on scroll
+        function animateNumbers() {
+            const metrics = document.querySelectorAll('.metric-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent;
+                        const isPercentage = finalValue.includes('%');
+                        const isPlus = finalValue.includes('+');
+                        const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                        
+                        let current = 0;
+                        const increment = numericValue / 30;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= numericValue) {
+                                current = numericValue;
+                                clearInterval(timer);
+                            }
+                            target.textContent = Math.floor(current) + (isPercentage ? '%' : '') + (isPlus ? '+' : '');
+                        }, 50);
+                        
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            metrics.forEach(metric => observer.observe(metric));
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateNumbers();
+            
+            // Add subtle parallax effect to hero
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+                }
+            });
+
+            // Add hover effect to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderLeftWidth = '6px';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderLeftWidth = '4px';
+                });
+            });
+
+            // Add loading animation to skill tags
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.1}s`;
+                tag.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            });
+        });
+
+        // Contact form functionality (if added later)
+        function sendEmail() {
+            const subject = encodeURIComponent('Product Management Opportunity');
+            const body = encodeURIComponent(`Hi Srujan,
+
+I came across your portfolio and I'm impressed by your experience in API product management and developer experience optimization. 
+
+I'd love to discuss potential opportunities where your skills could make a significant impact.
+
+Looking forward to connecting!
+
+Best regards,`);
+            
+            window.location.href = `mailto:b.abraham0021@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        // Add click tracking for analytics (placeholder)
+        function trackClick(element, action) {
+            // Analytics tracking would go here
+            console.log(`Tracked: ${action} clicked on ${element}`);
+        }
+
+        // Add event listeners for tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactLinks = document.querySelectorAll('.contact-link, .cta-button');
+            contactLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    trackClick(this.textContent.trim(), 'contact');
+                });
+            });
+
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    trackClick(this.textContent, 'skill');
+                });
+            });
+        });
+    </script>
+</body>
+</html>⚙️">Core Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Product Leadership</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Product Strategy</span>
+                                <span class="skill-tag">Roadmapping</span>
+                                <span class="skill-tag">Stakeholder Management</span>
+                                <span class="skill-tag">Go-to-Market</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Technical Expertise</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">API Design</span>
+                                <span class="skill-tag">Integration</span>
+                                <span class="skill-tag">Migration</span>
+                                <span class="skill-tag">Developer Platforms</span>
+                                <span class="skill-tag">Microservices</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Methodologies</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Agile</span>
+                                <span class="skill-tag">Scrum</span>
+                                <span class="skill-tag">Design Thinking</span>
+                                <span class="skill-tag">Lean Startup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><span class="icon">🛠️</span>Tech Stack</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Swagger</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Salesforce</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Confluence</span>
+                        <span class="skill-tag">ClickUp</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><span class="icon">⭐</span>Key Strengths</h2>
+                    <div class="highlight-item" data-icon="💡">
+                        <span>Creative problem-solving with hands-on execution</span>
+                    </div>
+                    <div class="highlight-item" data-icon="🚀">
+                        <span>Rapid prototyping and MVP development</span>
+                    </div>
+                    <div class="highlight-item" data-icon="👥">
+                        <span>Cross-functional collaboration and alignment</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 data-icon="
